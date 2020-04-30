@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- include aframe -->
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+<!-- include aframe-ar.js -->
+<script src="build/aframe-ar.js"></script>
+
+<!-- threex minecraft -->
+<script src='vendor/threex.minecraft/a-frame/build/aframe-minecraft.js'></script>
+<script>THREEx.MinecraftChar.baseUrl = 'vendor/threex.minecraft/'</script>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+	<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - example for a-frame
+	<br/>
+	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
+</div>
+		<a-scene embedded arjs='sourceType: webcam;'>
+			<a-assets>
+					<a-asset id="donut" src="Donut.glb"></a-asset>
+			        <a-asset-item id="bison_obj" src="Bison.obj"></a-asset-item>
+			        <a-asset-item id="bison_mtl" src="Bison.mtl"></a-asset-item>
+			        <a-asset id="cuboulder" src="cubuffs.png"></a-asset>
+			</a-assets>
+
+		<a-marker type='pattern' url='seok.patt'>
+		    <a-minecraft scale="0.5 0.5 0.5" rotation="0 0 0" minecraft-head-anim="yes" minecraft-body-anim="walk" ></a-minecraft>
+        </a-marker>
+
+		<a-marker type='pattern' url='cube.patt'>
+		    <a-minecraft scale="0.5 0.5 0.5" rotation="0 0 0" minecraft-head-anim="no" minecraft-body-anim="hiwave" ></a-minecraft>
+        </a-marker>
+
+		<a-marker type='pattern' url='schaal.patt'>
+      		<a-link href="https://creative.colorado.edu/~schaal/dev/" title="Creative Web Dev" geometry="" material="" link="">
+        </a-marker>
+
+		<a-marker type='pattern' url='star.patt'>
+      		<a-link href="https://creative.colorado.edu/~hyse4557/dev/" title="Back to home" geometry="" material="" link="">
+		</a-marker>
+
+		<a-marker type='pattern' url='CU.patt'>
+	        <a-sphere id="ball" material="src: #cuboulder" position="0 1 0" radius="0.5" rotation="0 0 180" shadow static-body="mass: 2000; shape: sphere" rotation="0 0 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 10000">
+     		</a-sphere>
+		</a-marker>
+
+		<a-marker type='pattern' url='donut.patt'>
+			<a-entity id="donut" scale="5 5 5" gltf-model="#donut" rotation="90 0 0" animation-mixer></a-entity>
+		</a-marker>
+
+		<a-marker preset="hiro">
+			<a-text value="sphere" position="0 0.7 0"></a-text>
+	        <a-sphere position="0 0 0" radius="0.1" rotation="0 20 0" scale="5 5 5" shadow static-body="mass: 2000; shape: sphere" rotation="0 0 0" animation="property: scale; to: 1 1 1; loop: true; dur: 5000">
+     		</a-sphere>
+		</a-marker>
+
+		<a-marker preset="kanji">
+			<a-text value="torus" position="0 0.7 0"></a-text>
+	        <a-entity position="0 0 0" scale="0.1 0.1 0.1" radius="0.1" rotation="1.57 0 0" shadow geometry="primitive: torus" rotation="0 0 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 10000">
+     		</a-entity>
+		</a-marker>
+
+		<a-entity camera></a-entity>
+        </a-scene>
+</body>
+</html>
